@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="organization-logo.png" type="image/x-icon" />
+  <title>CALAMBA CITY LIBRENG SAKAY PROGRAM</title>
+  <!-- <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    /> -->
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"> -->
+  <!-- <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap"
+      rel="stylesheet"
+    /> -->
+  <link rel="stylesheet" href="fontawesome/css/all.css" />
+  <link href="bootstrap.min.css" rel="stylesheet" />
+  <link rel="manifest" href="manifest.json" />
+
+  <style>
+    .form-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .form-actions {
+      margin-top: 20px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .passenger-form {
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+
+    .passenger-header {
+      font-weight: bold;
+    }
+
+    /* Add the custom font to the body */
+    body {
+      font-family: "Roboto", sans-serif;
+      font-size: 16px;
+      /* Adjust the font size as needed */
+      line-height: 1.5;
+      /* Adjust line height for readability */
+    }
+
+    /* Style the title */
+    .form-header {
+      text-align: center;
+      margin: 0;
+      /* Reset margin to remove default margin */
+      font-size: 24px;
+      /* Increase font size for the title */
+      font-weight: bold;
+      /* Make the title bold */
+    }
+
+    /* Style other elements as needed */
+    .form-group-heading {
+      font-weight: bold;
+      /* Make section headings bold */
+    }
+
+    @font-face {
+      font-family: "Roboto";
+      src: url("fonts/Roboto-Regular.ttf") format("truetype");
+      font-weight: 400;
+      /* Adjust the font weight as needed */
+      font-style: normal;
+    }
+
+    /* Style the note within the form */
+    .form-note {
+      font-size: 14px;
+      /* Adjust font size as needed */
+      color: #777;
+      /* Adjust color as needed */
+      margin-bottom: 20px;
+      /* Add margin to create space between the note and form content */
+    }
+
+    .required-field {
+      color: red;
+      margin-left: 3px;
+    }
+
+    /* Add custom styles for your logos and title here */
+    .logo1 img,
+    .logo2 img,
+    .logo3 img {
+      max-width: 100%;
+      height: auto;
+      height: 80px;
+    }
+
+    .title {
+      color: #000000;
+      /* Set text color */
+      font-size: 24px;
+      /* Set font size */
+      font-weight: bold;
+      /* Make it bold */
+      text-transform: uppercase;
+      /* Convert text to uppercase */
+      letter-spacing: 2px;
+      /* Add letter spacing for better readability */
+      margin-top: 10px;
+      /* Add top margin for spacing */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container mt-5">
+    <div class="form-container">
+      <!-- Header for bigger screens -->
+      <div class="d-none d-md-block">
+        <!-- Hide on smaller screens (md and below) -->
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-2">
+              <div class="logo1">
+                <img src="city-government-logo.png" alt="City Government Logo" />
+              </div>
+            </div>
+            <div class="col-md-8 text-center">
+              <div class="title">CALAMBA CITY LIBRENG SAKAY PROGRAM</div>
+            </div>
+            <div class="col-md-2">
+              <div class="logo2 text-right">
+                <img src="organization-logo.png" alt="GAD Logo" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Header for smaller screens -->
+      <div class="d-md-none">
+        <!-- Hide on medium and larger screens (md and above) -->
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-12 text-center">
+              <div class="logo3">
+                <img src="combine-logo.png" alt="Partner Logo" />
+              </div>
+            </div>
+            <div class="col-12 text-center">
+              <div class="title">CALAMBA CITY LIBRENG SAKAY PROGRAM</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add this HTML element where you want to display the date and time -->
+      <div id="dateTime" class="text-center mb-3"></div>
+      <!-- Add this script after your existing JavaScript code -->
+      <script>
+        // Function to update the real-time date and time including milliseconds
+        function updateRealTimeDateTime() {
+          const dateTimeElement = document.getElementById("dateTime");
+          const now = new Date();
+
+          // Format date and time
+          const options = {
+            weekday: "long", // Add the day of the week
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+            hour12: true,
+            // timeZoneName: "short",
+          };
+          const formattedDateTime = now.toLocaleDateString("en-US", options);
+
+          // Update the date and time in the element
+          dateTimeElement.textContent = formattedDateTime;
+        }
+
+        // Call the function to update real-time date and time
+        updateRealTimeDateTime();
+
+        // Update real-time date and time every millisecond
+        setInterval(updateRealTimeDateTime, 1); // Update every millisecond
+      </script>
+      <form>
+        <div class="form-group">
+          <div class="form-group-heading font-weight-bold">
+            E-TRIKE INFORMATION:
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-5">
+              <label for="date">Date:</label>
+              <input type="text" class="form-control" id="date" name="date" value="" readonly />
+            </div>
+            <div class="form-group col-md-5">
+              <label for="time">Time:</label>
+              <input type="text" class="form-control" id="time" name="time" value="" readonly />
+            </div>
+            <div class="form-group col-md-2">
+              <label for="ampm">AM/PM:</label>
+              <input type="text" class="form-control" id="ampm" name="ampm" value="AM" readonly />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="driverName">Driver's Full Name:<span class="required-field">*</span></label>
+              <input type="text" class="form-control" id="driverName" name="driverName"
+                oninput="validateDriverName(this)" placeholder="Enter Driver's Full Name" />
+            </div>
+            <div class="form-group col-md-6">
+              <label for="etrikeNo">Etrike #:<span class="required-field">*</span></label>
+              <input type="text" class="form-control" id="etrikeNo" name="etrikeNo" oninput="validateEtrikeNo(this)"
+                placeholder="Enter Etrike #" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="route">Route Name:<span class="required-field">*</span></label>
+            <input type="text" class="form-control" id="route" name="route" oninput="validateRoute(this)"
+              placeholder="Enter Route Name" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="form-group-heading font-weight-bold">
+            PASSENGER DETAILS:
+          </div>
+          <div id="passengerForms">
+            <!-- Passenger forms will be dynamically added here -->
+          </div>
+          <div class="btn-group mt-3">
+            <button type="button" class="btn bg-gradient-primary add-passenger" onclick="addPassengerForm()">
+              <i class="fas fa-user-plus"></i> New Passenger
+            </button>
+            <!-- <button
+                type="button"
+                class="btn bg-gradient-danger clear-data"
+                onclick="clearFormFields()"
+              >
+                <i class="fas fa-eraser"></i> Clear All Data
+              </button> -->
+          </div>
+        </div>
+        <!-- Note: (instruction) placed inside the form -->
+        <div class="form-note text-muted">
+          Note:
+          <ul>
+            <li>Click "New Passenger" to add a new passenger.</li>
+            <li>Click "Remove" to remove a passenger.</li>
+            <!-- <li>Click "Clear All Data" to clear all form data.</li> -->
+            <li>
+              Fields marked with <span class="required-field">*</span> are
+              required.
+            </li>
+          </ul>
+        </div>
+
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              <button type="button" class="btn btn-success btn-block generate-csv" onclick="showConfirmationModal()">
+                <i class="fas fa-check"></i> Confirm Passenger Ride
+              </button>
+            </div>
+            <div class="col-md-6 mt-3 mt-md-0">
+              <a href="javascript:void(0);" class="btn btn-primary btn-block" id="downloadButton" data-toggle="modal"
+                data-target="#confirmDownloadModal">
+                <i class="fas fa-download"></i> Download All Data CSV
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="confirmDownloadModal" tabindex="-1" role="dialog"
+          aria-labelledby="confirmDownloadModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="confirmDownloadModalLabel">Confirm Download</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Are you sure you want to download all data as a CSV file?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <button type="button" class="btn btn-primary" onclick="downloadAllDataCSV()">Yes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal for Confirmation -->
+        <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog"
+          aria-labelledby="confirmationModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="confirmationModalLabel">Confirmation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Are you sure you want to confirm the passenger ride?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <button type="button" class="btn btn-success" onclick="generateCSVAndCloseModal()">Yes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    </div>
+    </form>
+  </div>
+  </div>
+
+  <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+
+  <script src="jquery.min.js"></script>
+  <script src="popper.min.js"></script>
+  <script src="bootstrap.min.js"></script>
+
+  <script>
+    let passengerCounter = 0;
+    // Function to update the real-time date and time including milliseconds
+    function updateRealTimeDateTime() {
+      const dateElement = document.getElementById("date");
+      const timeElement = document.getElementById("time"); // Changed to text input
+      const ampmElement = document.getElementById("ampm");
+
+      const now = new Date();
+
+      // Format date as "Day, Month Day, Year"
+      const formattedDate = now.toLocaleDateString("en-US", {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
+      dateElement.value = formattedDate;
+
+      // Format time as hh:mm:ss.SSS AM/PM (including milliseconds)
+      const hours = now.getHours() % 12 || 12; // Convert to 12-hour format
+      const minutes = now.getMinutes();
+      const seconds = now.getSeconds();
+      const milliseconds = now.getMilliseconds();
+      const ampm = now.getHours() >= 12 ? "PM" : "AM";
+      const formattedTime = `${hours}:${minutes < 10 ? "0" : ""}${minutes}:${seconds < 10 ? "0" : ""
+        }${seconds}`;
+      timeElement.value = formattedTime;
+
+      // Set AM/PM based on current time
+      ampmElement.value = ampm;
+    }
+
+    // Call the function to update real-time date and time
+    updateRealTimeDateTime();
+
+    // Update real-time date and time every millisecond
+    setInterval(updateRealTimeDateTime, 1); // Update every millisecond
+
+    // Function to add a new passenger form
+    function addPassengerForm() {
+      const passengerForms = document.getElementById("passengerForms");
+
+      const passengerForm = document.createElement("div");
+      passengerForm.classList.add("passenger-form", "row");
+
+      // Increment the passenger counter
+      passengerCounter++;
+
+      passengerForm.innerHTML = `
+    <div class="col-md-12">
+      <div class="passenger-header">Passenger ${passengerCounter}:</div>
+    </div>
+    <!-- Rest of your code remains the same -->
+  `;
+
+      passengerForms.appendChild(passengerForm);
+
+      passengerForm.innerHTML = `
+<div class="col-md-12">
+    <div class="passenger-header">Passenger:</div>
+</div>
+<div class="form-group-passenger col-md-5 mb-3">
+    <label for="passengerFirstName">First Name:<span class="required-field">*</span></label>
+    <input type="text" class="form-control passengerFirstName" name="passengerFirstName[]" oninput="validatePassengerName(this)" placeholder="Enter First Name">
+</div>
+<div class="form-group-passenger col-md-5 mb-3">
+    <label for="passengerLastName">Last Name:<span class="required-field">*</span></label>
+    <input type="text" class="form-control passengerLastName" name="passengerLastName[]" oninput="validatePassengerName(this)" placeholder="Enter Last Name">
+</div>
+<div class="form-group-passenger col-md-2 mb-3">
+    <label for="passengerSex">Sex:<span class="required-field">*</span></label>
+    <select class="form-control passengerSex" name="passengerSex[]">
+        <option value="">SEX</option>
+        <option value="M">MALE</option>
+        <option value="F">FEMALE</option>
+    </select>
+</div>
+<div class="form-group-passenger col-lg-6 mb-3">
+    <label for="passengerDepartment">Department:<span class="required-field">*</span><small class="text-muted"> (Select "Civilian" or "Student" if not applicable.)</small></label>
+    <select class="form-control passengerDepartment" name="passengerDepartment[]">
+        <option value="">DEPARTMENT</option>
+        <option value="CIVILIAN">CIVILIAN</option>
+        <option value="STUDENT">STUDENT</option>
+        <option value="OFFICE OF THE MAYOR">OFFICE OF THE MAYOR</option>
+        <option value="VICE-MAYOR">OFFICE OF THE VICE-MAYOR</option>
+        <option value="BUILDINGS REGULATORY SERVICES DEPARTMENT">BUILDINGS REGULATORY SERVICES DEPARTMENT</option>
+        <option value="BUSINESS PERMITS AND TRICYCLE FRANCHISING OFFICE">BUSINESS PERMITS AND TRICYCLE FRANCHISING OFFICE</option>
+        <option value="CITY ACCOUNTING AND INTERNAL CONTROL OFFICE">CITY ACCOUNTING AND INTERNAL CONTROL OFFICE</option>
+        <option value="CITY ADMINISTRATION OFFICE">CITY ADMINISTRATION OFFICE</option>
+        <option value="CITY AGRICULTURAL SERVICES DEPARTMENT">CITY AGRICULTURAL SERVICES DEPARTMENT</option>
+        <option value="CITY ASSESSMENT OFFICE">CITY ASSESSMENT OFFICE</option>
+        <option value="CITY BUDGET MANAGEMENT OFFICE">CITY BUDGET MANAGEMENT OFFICE</option>
+        <option value="CITY CIVIL REGISTRY OFFICE">CITY CIVIL REGISTRY OFFICE</option>
+        <option value="CITY ENGINEERING AND INFRASTRUCTURE DEVELOPMENT DEPARTMENT">CITY ENGINEERING AND INFRASTRUCTURE DEVELOPMENT DEPARTMENT</option>
+        <option value="CITY ENVIRONMENT AND NATURAL RESOURCES DEPARTMENT">CITY ENVIRONMENT AND NATURAL RESOURCES DEPARTMENT</option>
+        <option value="CITY GENERAL SERVICES OFFICE">CITY GENERAL SERVICES OFFICE</option>
+        <option value="CITY HEALTH SERVICES DEPARTMENT">CITY HEALTH SERVICES DEPARTMENT</option>
+        <option value="CITY HUMAN RESOURCE AND MANAGEMENT OFFICE">CITY HUMAN RESOURCE AND MANAGEMENT OFFICE</option>
+        <option value="CITY LEGAL SERVICES OFFICE">CITY LEGAL SERVICES OFFICE</option>
+        <option value="CITY PLANNING AND DEVELOPMENT OFFICE">CITY PLANNING AND DEVELOPMENT OFFICE</option>
+        <option value="CITY TREASURY MANAGEMENT OFFICE">CITY TREASURY MANAGEMENT OFFICE</option>
+        <option value="CULTURAL AFFAIRS, TOURISM AND SPORTS DEVELOPMENT DEPARTMENT">CULTURAL AFFAIRS, TOURISM AND SPORTS DEVELOPMENT DEPARTMENT</option>
+        <option value="CITY POPULATION MANAGEMENT OFFICE">CITY POPULATION MANAGEMENT OFFICE</option>
+        <option value="CITY SOCIAL SERVICES DEPARTMENT">CITY SOCIAL SERVICES DEPARTMENT</option>
+        <option value="COOPERATIVES AND LIVELIHOOD DEVELOPMENT DEPARTMENT">COOPERATIVES AND LIVELIHOOD DEVELOPMENT DEPARTMENT</option>
+        <option value="HOUSING AND SETTLEMENTS DEPARTMENT">HOUSING AND SETTLEMENTS DEPARTMENT</option>
+        <option value="INFORMATION, INVESTMENT PROMOTIONS AND EMPLOYMENT SERVICES OFFICE">INFORMATION, INVESTMENT PROMOTIONS AND EMPLOYMENT SERVICES OFFICE</option>
+        <option value="LEGISLATIVE SERVICES OFFICE">LEGISLATIVE SERVICES OFFICE</option>
+        <option value="PUBLIC ORDER AND SAFETY OFFICE">PUBLIC ORDER AND SAFETY OFFICE</option>
+        <option value="VETERINARY SERVICES AND SLAUGHTERHOUSE MANAGEMENT OFFICE">VETERINARY SERVICES AND SLAUGHTERHOUSE MANAGEMENT OFFICE</option>
+        <option value="CITY COLLEGE OF CALAMBA">CITY COLLEGE OF CALAMBA</option>
+        <!-- Add more department options here -->
+    </select>
+</div>
+<div class="form-group-passenger col-lg-4 mb-3">
+    <label for="passengerDestination">Destination:<span class="required-field">*</span></label>
+    <input type="text" class="form-control passengerDestination" name="passengerDestination[]" oninput="validatePassengerDestination(this)" placeholder="Enter Destination">
+</div>
+<div class="col-lg-2 align-self-end text-center mb-3">
+    <button class="btn btn-block bg-gradient-danger delete-passenger" onclick="deletePassengerForm(this)">
+        <i class="fas fa-remove"></i> Remove
+    </button>
+</div>
+`;
+
+      passengerForms.appendChild(passengerForm);
+
+      // Attach event listeners to passenger input elements in the new form
+      const passengerFirstName = passengerForm.querySelector(
+        ".passengerFirstName"
+      );
+      const passengerLastName =
+        passengerForm.querySelector(".passengerLastName");
+      const passengerSex = passengerForm.querySelector(".passengerSex");
+      const passengerDepartment = passengerForm.querySelector(
+        ".passengerDepartment"
+      );
+      const passengerDestination = passengerForm.querySelector(
+        ".passengerDestination"
+      );
+
+      passengerFirstName.addEventListener("input", updateGenerateCSVButton);
+      passengerLastName.addEventListener("input", updateGenerateCSVButton);
+      passengerSex.addEventListener("input", updateGenerateCSVButton);
+      passengerDepartment.addEventListener("input", updateGenerateCSVButton);
+      passengerDestination.addEventListener("input", updateGenerateCSVButton);
+
+      // Check the completeness of passenger details for all existing forms
+      updateGenerateCSVButton();
+      // Call updatePassengerHeaders to update passenger headers
+      updatePassengerHeaders();
+    }
+
+    function deletePassengerForm(buttonElement) {
+      const passengerForm = buttonElement.parentElement.parentElement;
+      const passengerForms = document.getElementById("passengerForms");
+      passengerForms.removeChild(passengerForm);
+
+      // Decrement the passenger counter
+      passengerCounter--;
+
+      // Update the passenger headers after removing a passenger form
+      updatePassengerHeaders();
+
+      // Update the "Confirm Passenger Ride" button state after removing a passenger
+      updateGenerateCSVButton();
+    }
+
+    // Function to validate Driver Name
+    function validateDriverName(inputElement) {
+      const driverName = inputElement.value.toUpperCase();
+      if (driverName.length > 100) {
+        inputElement.value = driverName.substring(0, 100);
+      } else {
+        inputElement.value = driverName;
+      }
+    }
+
+    // Function to validate Etrike No
+    function validateEtrikeNo(inputElement) {
+      let etrikeNo = inputElement.value;
+      etrikeNo = etrikeNo.replace(/[^0-9]/g, ""); // Remove non-numeric characters
+      if (
+        etrikeNo === "" ||
+        parseInt(etrikeNo) < 0 ||
+        parseInt(etrikeNo) > 20
+      ) {
+        inputElement.value = ""; // Invalid input, clear the field
+      } else {
+        inputElement.value = etrikeNo;
+      }
+    }
+
+    // Function to validate Route
+    function validateRoute(inputElement) {
+      const route = inputElement.value.toUpperCase();
+      if (route.length > 100) {
+        inputElement.value = route.substring(0, 100);
+      } else {
+        inputElement.value = route;
+      }
+    }
+
+    // Function to validate Passenger Name (First Name and Last Name)
+    function validatePassengerName(inputElement) {
+      const passengerName = inputElement.value.toUpperCase();
+      if (passengerName.length > 100) {
+        inputElement.value = passengerName.substring(0, 100);
+      } else {
+        inputElement.value = passengerName;
+      }
+    }
+
+    // Function to validate Passenger Destination (convert to uppercase)
+    function validatePassengerDestination(inputElement) {
+      const destination = inputElement.value.toUpperCase();
+      if (destination.length > 100) {
+        inputElement.value = destination.substring(0, 100);
+      } else {
+        inputElement.value = destination;
+      }
+    }
+
+    function generateCSV() {
+      // General information fields
+      const dateElement = document.getElementById("date");
+      const time = document.getElementById("time").value;
+      const ampm = document.getElementById("ampm").value;
+
+      // Format date as mm/dd/yyyy
+      const date = formatDate(dateElement.value);
+
+      // Store the values of Driver, Etrike No, and Route
+      const driverNameInput = document.getElementById("driverName");
+      const etrikeNoInput = document.getElementById("etrikeNo");
+      const routeInput = document.getElementById("route");
+
+      const driverName = driverNameInput.value;
+      const etrikeNo = etrikeNoInput.value;
+      const route = routeInput.value;
+
+      // Passenger details fields
+      const passengerFirstNames = document.querySelectorAll(
+        ".passengerFirstName"
+      );
+      const passengerLastNames =
+        document.querySelectorAll(".passengerLastName");
+      const passengerSex = document.querySelectorAll(".passengerSex");
+      const passengerDepartments = document.querySelectorAll(
+        ".passengerDepartment"
+      );
+      const passengerDestinations = document.querySelectorAll(
+        ".passengerDestination"
+      );
+
+      // Create a CSV string for passenger details
+      let csvContent = "";
+
+      for (let i = 0; i < passengerFirstNames.length; i++) {
+        const passengerFirstName = passengerFirstNames[i].value;
+        const passengerLastName = passengerLastNames[i].value;
+        const passengerSexValue = passengerSex[i].value;
+        const passengerDepartment = passengerDepartments[i].value;
+        const passengerDestination = passengerDestinations[i].value;
+
+        csvContent += `${date},${time},${ampm},${driverName},${etrikeNo},${route},${passengerFirstName},${passengerLastName},${passengerSexValue},${passengerDepartment},${passengerDestination}\n`;
+      }
+
+      // Retrieve existing CSV data from local storage
+      const localStorageKey = "generatedCSV";
+      let existingData = localStorage.getItem(localStorageKey) || "";
+
+      // Check if there's existing data and remove the last newline character
+      if (existingData.endsWith("\n")) {
+        existingData = existingData.slice(0, -1);
+      }
+
+      // Append the new CSV data to the existing data, with a newline separator
+      if (existingData && csvContent) {
+        csvContent = `\n${csvContent}`;
+      }
+
+      existingData += csvContent;
+
+      // Save the updated CSV data to local storage
+      localStorage.setItem(localStorageKey, existingData);
+
+      // Disable the "Generate CSV" button after generating the CSV
+      const generateCSVButton = document.querySelector(".generate-csv");
+      generateCSVButton.setAttribute("disabled", "disabled");
+
+      // Clear form data
+      clearFormFields();
+
+      // Set the values of Driver, Etrike No, and Route back to their respective fields
+      driverNameInput.value = driverName;
+      etrikeNoInput.value = etrikeNo;
+      routeInput.value = route;
+    }
+
+    // Function to check if there's data in local storage
+    function hasDataInLocalStorage() {
+      const localStorageKey = "generatedCSV";
+      const csvData = localStorage.getItem(localStorageKey);
+      return csvData !== null;
+    }
+
+    // Function to enable/disable the Download All Data button based on data presence
+    function updateDownloadButtonState() {
+      const downloadButton = document.getElementById("downloadButton");
+      if (hasDataInLocalStorage()) {
+        downloadButton.disabled = false; // Enable the button
+        downloadButton.classList.remove("disabled"); // Remove Bootstrap "disabled" class
+      } else {
+        downloadButton.disabled = true; // Disable the button
+        downloadButton.classList.add("disabled"); // Add Bootstrap "disabled" class
+      }
+    }
+
+    // Custom function to detect changes in local storage
+    function detectLocalStorageChanges() {
+      const localStorageKey = "generatedCSV";
+      let lastData = localStorage.getItem(localStorageKey);
+
+      setInterval(function () {
+        const newData = localStorage.getItem(localStorageKey);
+        if (newData !== lastData) {
+          // Trigger a custom event to notify the button
+          const localDataChangeEvent = new Event("localDataChange");
+          document.dispatchEvent(localDataChangeEvent);
+          lastData = newData;
+        }
+      }, 1000); // Check for changes every 1 second
+    }
+
+    // Call the function to start monitoring local storage changes
+    detectLocalStorageChanges();
+
+    // Call the function to initially set the button state
+    updateDownloadButtonState();
+
+    // Listen for the custom event to update the button state
+    document.addEventListener("localDataChange", function () {
+      updateDownloadButtonState();
+    });
+
+    // Function to download CSV data
+    function downloadAllDataCSV() {
+      if (hasDataInLocalStorage()) {
+        const localStorageKey = "generatedCSV";
+        const csvData = localStorage.getItem(localStorageKey);
+
+        if (csvData) {
+          // Add a header row
+          const header =
+            "Date,Time,AM/PM,Driver,Etrike No,Route,First Name,Last Name,Sex,Department,Destination\n";
+          const csvContent = header + csvData;
+
+          // Get the current date and time
+          const now = new Date();
+          const formattedDate = now.toLocaleDateString().replaceAll("/", "-");
+          const formattedTime = now.toLocaleTimeString().replace(/:/g, "-");
+
+          // Create a filename with the current date and time
+          const customFilename = `${formattedDate}-${formattedTime}-passenger_data.csv`;
+
+          // Create a Blob (binary large object) containing the CSV data
+          const blob = new Blob([csvContent], { type: "text/csv" });
+
+          // Create a download link and trigger the download with the custom filename
+          const a = document.createElement("a");
+          a.href = URL.createObjectURL(blob);
+          a.download = customFilename;
+          a.style.display = "none";
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+
+          // Close the modal after successful download
+          $('#confirmDownloadModal').modal('hide');
+        }
+      }
+    }
+
+    // Function to format date as mm/dd/yyyy
+    function formatDate(inputDate) {
+      const dateObj = new Date(inputDate);
+      const month = String(dateObj.getMonth() + 1).padStart(2, "0");
+      const day = String(dateObj.getDate()).padStart(2, "0");
+      const year = dateObj.getFullYear();
+      return `${month}/${day}/${year}`;
+    }
+
+    // Function to clear form fields
+    function clearFormFields() {
+      document.getElementById("driverName").value = "";
+      document.getElementById("etrikeNo").value = "";
+      document.getElementById("route").value = "";
+      const passengerForms = document.getElementById("passengerForms");
+      while (passengerForms.firstChild) {
+        passengerForms.removeChild(passengerForms.firstChild);
+      }
+    }
+
+    // Function to enable or disable the "Generate CSV" button based on form completion
+    function updateGenerateCSVButton() {
+      const generateCSVButton = document.querySelector(".generate-csv");
+      const driverNameInput = document.getElementById("driverName");
+      const etrikeNoInput = document.getElementById("etrikeNo");
+      const routeInput = document.getElementById("route");
+      const passengerFirstNames = document.querySelectorAll(
+        ".passengerFirstName"
+      );
+      const passengerLastNames =
+        document.querySelectorAll(".passengerLastName");
+      const passengerSex = document.querySelectorAll(".passengerSex");
+      const passengerDepartments = document.querySelectorAll(
+        ".passengerDepartment"
+      );
+      const passengerDestinations = document.querySelectorAll(
+        ".passengerDestination"
+      );
+
+      // Check if at least one passenger is added
+      const passengersAdded = passengerFirstNames.length > 0;
+
+      // Check if all passenger details are filled out (if there are passengers)
+      const passengerDetailsComplete =
+        passengersAdded &&
+        Array.from(passengerFirstNames).every((element, index) => {
+          const firstName = element.value.trim();
+          const lastName = passengerLastNames[index].value.trim();
+          const sex = passengerSex[index].value.trim();
+          const department = passengerDepartments[index].value.trim();
+          const destination = passengerDestinations[index].value.trim();
+          return (
+            firstName !== "" &&
+            lastName !== "" &&
+            sex !== "" &&
+            department !== "" &&
+            destination !== ""
+          );
+        });
+
+      // Enable or disable the "Generate CSV" button based on the conditions
+      if (
+        passengersAdded &&
+        passengerDetailsComplete &&
+        driverNameInput.value.trim() !== "" &&
+        etrikeNoInput.value.trim() !== "" &&
+        routeInput.value.trim() !== ""
+      ) {
+        generateCSVButton.removeAttribute("disabled");
+      } else {
+        generateCSVButton.setAttribute("disabled", "disabled");
+      }
+    }
+
+    // Call the function to initially set the button state
+    updateGenerateCSVButton();
+
+    // Add event listeners to input elements to update the "Generate CSV" button
+    document
+      .getElementById("driverName")
+      .addEventListener("input", updateGenerateCSVButton);
+    document
+      .getElementById("etrikeNo")
+      .addEventListener("input", updateGenerateCSVButton);
+    document
+      .getElementById("route")
+      .addEventListener("input", updateGenerateCSVButton);
+
+    // Add event listeners to passenger input elements
+    const passengerFirstNames = document.querySelectorAll(
+      ".passengerFirstName"
+    );
+    const passengerLastNames =
+      document.querySelectorAll(".passengerLastName");
+    const passengerSex = document.querySelectorAll(".passengerSex");
+    const passengerDepartments = document.querySelectorAll(
+      ".passengerDepartment"
+    );
+    const passengerDestinations = document.querySelectorAll(
+      ".passengerDestination"
+    );
+
+    passengerFirstNames.forEach((element) => {
+      element.addEventListener("input", updateGenerateCSVButton);
+    });
+
+    passengerLastNames.forEach((element) => {
+      element.addEventListener("input", updateGenerateCSVButton);
+    });
+
+    passengerSex.forEach((element) => {
+      element.addEventListener("input", updateGenerateCSVButton);
+    });
+
+    passengerDepartments.forEach((element) => {
+      element.addEventListener("input", updateGenerateCSVButton);
+    });
+
+    passengerDestinations.forEach((element) => {
+      element.addEventListener("input", updateGenerateCSVButton);
+    });
+
+    // Function to update passenger headers
+    function updatePassengerHeaders() {
+      const passengerHeaders = document.querySelectorAll(".passenger-header");
+      passengerHeaders.forEach((header, index) => {
+        header.textContent = `Passenger ${index + 1}:`;
+      });
+    }
+
+    // Function to show the confirmation modal
+    function showConfirmationModal() {
+      $('#confirmationModal').modal('show'); // Show the modal
+    }
+
+    // Function to generate CSV and close the modal
+    function generateCSVAndCloseModal() {
+      // Add your code here to generate the CSV
+      generateCSV();
+
+      // Close the modal
+      $('#confirmationModal').modal('hide');
+    }
+  </script>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker
+        .register("/service-worker.js")
+        .then(function (registration) {
+          console.log(
+            "Service Worker registered with scope:",
+            registration.scope
+          );
+        })
+        .catch(function (error) {
+          console.error("Service Worker registration failed:", error);
+        });
+    }
+  </script>
+</body>
+
+</html>
